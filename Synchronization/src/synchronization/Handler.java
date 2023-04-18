@@ -65,7 +65,31 @@ public class Handler implements GameInterface
     {
         this.object.remove(object);
     }
-    
+    public void makan(GameObject object1, GameObject object2){
+        if (object2 == null) {
+            return;
+        }
+        // Hitbox of object 1
+        int object1Left = object1.getX();
+        int object1Right = object1.getX() + object1.getWidth();
+        int object1Top = object1.getY();
+        int object1Bottom = object1.getY() + object1.getHeight();
+
+        // Hitbox of object 2
+        int object2Left = object2.getX();
+        int object2Right = object2.getX() + object2.getWidth();
+        int object2Top = object2.getY();
+        int object2Bottom = object2.getY() + object2.getHeight();
+        
+        // Check for collision
+        if (object1Right >= object2Left && object1Left <= object2Right && object1Bottom >= object2Top && object1Top <= object2Bottom) {
+            object2.setX(this.rand.nextInt(640));
+            object2.setY(this.rand.nextInt(480));
+//            object2.setHeight(object2.getHeight()+object2.getHeight());
+
+        } 
+    }
+
     /**
      * 
      * Override interface.
@@ -90,8 +114,8 @@ public class Handler implements GameInterface
         {
             GameObject temp;
             temp = object.get(i);
-            
             temp.loop();
         }
+//        this.makan(object.get(0),object.get(1));
     }
 }

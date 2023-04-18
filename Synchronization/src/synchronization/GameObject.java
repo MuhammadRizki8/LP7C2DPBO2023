@@ -86,7 +86,7 @@ public class GameObject implements GameInterface
 
     public void setWidth(int width)
     {
-        this.width = height;
+        this.width = width;
     }
     
     /* Object height. */

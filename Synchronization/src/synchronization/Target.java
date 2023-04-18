@@ -11,24 +11,24 @@ import java.awt.Graphics;
  *
  * @author Satria Ramadhani
  */
-public class Player extends GameObject
+public class Target extends GameObject
 {
     /**
      * Constructor.
      */
     
     // Default constructor.
-    public Player()
+    public Target()
     {
-        super(0, 0, "Player");
+        super(0, 0, "Target");
         super.setHeight(30);
         super.setWidth(30);
     }
     
     // Constructor with player position.
-    public Player(int x, int y)
+    public Target(int x, int y)
     {
-        super(x, y, "Player");
+        super(x, y, "Target");
         super.setHeight(30);
         super.setWidth(30);
     }
@@ -41,8 +41,8 @@ public class Player extends GameObject
     public void render(Graphics object)
     {
         // Set player shape.
-        object.setColor(Color.decode("#87CEEB"));
-        object.fillOval(x, y, 30, 30);
+        object.setColor(Color.decode("#ffffff"));
+        object.fillRect(x, y, 30, 30);
     }
     
     @Override

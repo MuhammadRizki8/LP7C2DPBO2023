@@ -62,6 +62,7 @@ public class Game extends Canvas implements Runnable
             if(running)
             {
                 handler.add(new Player(320, 160));
+                handler.add(new Target(100,100));
             }
         } catch(Exception e)
         {
@@ -194,6 +195,7 @@ public class Game extends Canvas implements Runnable
     public void loop()
     {
         GameObject player = null;
+        GameObject target = null;
         
         handler.loop();
         if(this.running)
@@ -222,7 +224,12 @@ public class Game extends Canvas implements Runnable
                 {
                     player = handler.get(i);
                 }
+                else if(handler.get(i).getType().equals("Target"))
+                {
+                    target = handler.get(i);
+                }
             }
+            handler.makan(player, target);
         }
     }
     
